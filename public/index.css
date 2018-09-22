@@ -1,0 +1,343 @@
+/*
+ * Mixin printing a linear-gradient
+ * as well as a plain color fallback
+ * and the `-webkit-` prefixed declaration
+ * @access public
+ * @param {Keyword | Angle} $direction - Linear gradient direction
+ * @param {Arglist} $color-stops - List of color-stops composing the gradient
+ *
+ * @see https://www.sitepoint.com/building-linear-gradient-mixin-sass/
+ */
+.loading {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd;
+  border-radius: 50%;
+  position: relative;
+  margin: 50px;
+  display: inline-block;
+}
+.loading::before, .loading::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.loading-spinny:after {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  border: 4px solid transparent;
+  border-top-color: #dc4710;
+  border-bottom-color: #dc4710;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spinny 1s linear infinite;
+  -moz-animation: spinny 1s linear infinite;
+  -o-animation: spinny 1s linear infinite;
+  animation: spinny 1s linear infinite;
+}
+
+@-webkit-keyframes spinny {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@-moz-keyframes spinny {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@-o-keyframes spinny {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes spinny {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+.loading-bouncy {
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  -o-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+.loading-bouncy:after, .loading-bouncy:before {
+  width: 20px;
+  height: 20px;
+  background-color: #dc4710;
+  position: absolute;
+  margin-left: -10px;
+  left: 50%;
+}
+.loading-bouncy:before {
+  top: -10px;
+  -webkit-animation: bouncy 1s linear infinite;
+  -moz-animation: bouncy 1s linear infinite;
+  -o-animation: bouncy 1s linear infinite;
+  animation: bouncy 1s linear infinite;
+}
+.loading-bouncy::after {
+  bottom: -10px;
+  -webkit-animation: bouncy 0.5s linear infinite;
+  -moz-animation: bouncy 0.5s linear infinite;
+  -o-animation: bouncy 0.5s linear infinite;
+  animation: bouncy 0.5s linear infinite;
+}
+
+@-webkit-keyframes bouncy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+@-moz-keyframes bouncy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+@-o-keyframes bouncy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+@keyframes bouncy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-clock {
+  background-color: transparent;
+  border: 3px solid #ddd;
+}
+.loading-clock:before {
+  width: 0;
+  height: 50px;
+  border-left: 4px solid #aaa;
+  position: absolute;
+  border-radius: 0;
+  left: 50%;
+  top: 0;
+  margin-left: -2px;
+  transform-origin: bottom center;
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  -o-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+.loading-clock:after {
+  background-color: #dc4710;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  -webkit-animation: pulse 1.8s linear infinite;
+  -moz-animation: pulse 1.8s linear infinite;
+  -o-animation: pulse 1.8s linear infinite;
+  animation: pulse 1.8s linear infinite;
+}
+
+.loading-pulse::before, .loading-pulse:after {
+  background-color: #dc4710;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  opacity: 0;
+}
+.loading-pulse::before {
+  -webkit-animation: pulse 3s linear infinite;
+  -moz-animation: pulse 3s linear infinite;
+  -o-animation: pulse 3s linear infinite;
+  animation: pulse 3s linear infinite;
+}
+.loading-pulse::after {
+  -webkit-animation: pulse 2s linear 2.3s infinite;
+  -moz-animation: pulse 2s linear 2.3s infinite;
+  -o-animation: pulse 2s linear 2.3s infinite;
+  animation: pulse 2s linear 2.3s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+@-moz-keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+@-o-keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+.loading-bounce {
+  background-color: transparent;
+  height: 0;
+  width: 0;
+}
+.loading-bounce .ball {
+  display: block;
+  height: 20px;
+  width: 20px;
+  background: #ddd;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+}
+.loading-bounce .ball:nth-child(1) {
+  left: -40px;
+  -webkit-animation: bounce 1s ease-in-out infinite;
+  -moz-animation: bounce 1s ease-in-out infinite;
+  -o-animation: bounce 1s ease-in-out infinite;
+  animation: bounce 1s ease-in-out infinite;
+}
+.loading-bounce .ball:nth-child(2) {
+  left: 0;
+  -webkit-animation: bounce 1s ease-in-out 0.33s infinite;
+  -moz-animation: bounce 1s ease-in-out 0.33s infinite;
+  -o-animation: bounce 1s ease-in-out 0.33s infinite;
+  animation: bounce 1s ease-in-out 0.33s infinite;
+}
+.loading-bounce .ball:nth-child(3) {
+  left: 40px;
+  -webkit-animation: bounce 1s ease-in-out 0.66s infinite;
+  -moz-animation: bounce 1s ease-in-out 0.66s infinite;
+  -o-animation: bounce 1s ease-in-out 0.66s infinite;
+  animation: bounce 1s ease-in-out 0.66s infinite;
+}
+
+@-webkit-keyframes bounce {
+  0%, 75%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-30px);
+  }
+}
+@-moz-keyframes bounce {
+  0%, 75%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-30px);
+  }
+}
+@-o-keyframes bounce {
+  0%, 75%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-30px);
+  }
+}
+@keyframes bounce {
+  0%, 75%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-30px);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

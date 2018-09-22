@@ -1,0 +1,22 @@
+{
+  "name": "loading",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaoyuyu/loading-icon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaoyuyu/loading-icon/issues"
+  },
+  "homepage": "https://github.com/shaoyuyu/loading-icon#readme",
+  "dependencies": {
+    "sass-prefix-mixins": "^1.0.2"
+  }
+}
